@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "../../Components";
-import { api } from "../../services/postApi";
+import { getCepByApi } from "../../services/";
 
 export const Home = () => {
   const [input, setInput] = useState("");
@@ -14,15 +14,27 @@ export const Home = () => {
       return;
     }
 
-    try {
-      const response = await api.get(`${input}`);
-      setCep(response.data);
-      setInput("");
-    } catch (err) {
-      alert("Erro ao buscar");
-      setInput("");
-    }
+    const result = await getCepByApi(input)
+      .then((results) => {
+        setCep(results);
+        setInput("");
+        console.log(Object.values(results));
+      })
+      .catch((err) => {
+        alert("Erro ao buscar");
+        setInput("");
+      });
+
+    // try {
+    //   const response = await api.get(`${input}`);
+    //   setCep(response.data);
+    //   setInput("");
+    // } catch (err) {
+    //   alert("Erro ao buscar");
+    //   setInput("");
+    // }
   };
+
   return (
     <div className="w-full h-screen ">
       <p className="text-5xl animate-bounce text-teal-50 ">
@@ -38,18 +50,22 @@ export const Home = () => {
             value={input}
             type="text"
             className="border text-center shadow-lg  bg-gray-700 rounded-full border-dotted text-white p-3 "
-            placeholder="digite o  cep..."
+            placeholder="Digite o  cep..."
           />
           <Button click={handleSearch} />
         </div>
         <form className=" bg-gradient-to-b  from-indigo-100 flex flex-col gap-4 mt-4  rounded-lg p-4  mx-64 ">
+          {/* {Object.values(cep).map((elem: any, index: any) => {
+            return ( */}
           <div className="text-2xl flex flex-col gap-2 ">
-            <h2 className="text-4xl">CEP :{cep}</h2>
-            <span>State : </span>
+            <h2 className="text-4xl">CEP :</h2>
+            <span>State :</span>
             <span>City : </span>
             <span>District : </span>
-            <span>Address : </span>
+            <span>Address :</span>
           </div>
+          {/* );
+          })} */}
         </form>
       </section>
     </div>

@@ -1,8 +1,8 @@
 import axios from "axios";
-import { API_URL } from "../constants/";
+import { API_URL } from "../constantes/";
 import { ICep } from "../interfaces";
 
-export const getProductByIdApi = async (input: number): Promise<ICep> => {
+export const getCepByApi = async (input: string) => {
   try {
     const response = await axios.get(`${API_URL}${input}`);
     return response.data;
