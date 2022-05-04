@@ -1,5 +1,6 @@
-import React from "react";
-import { Button } from "../src/Components";
+import React, { useState } from "react";
+import { Button } from "../../Components";
+import { api } from "../../services/postApi";
 
 export const Home = () => {
   const [input, setInput] = useState("");
@@ -24,7 +25,9 @@ export const Home = () => {
   };
   return (
     <div className="w-full h-screen ">
-      <p className="text-5xl animate-bounce text-teal-50">Welcome</p>
+      <p className="text-5xl animate-bounce text-teal-50 ">
+        Welcome - Rede D'or challenge
+      </p>
       <section className=" flex flex-col  gap-5">
         <h1 className="text-8xl text-center text-white ">Buscador de CEP</h1>
         <div className="flex gap-2 justify-center  ">
@@ -39,9 +42,9 @@ export const Home = () => {
           />
           <Button click={handleSearch} />
         </div>
-        <form className=" bg-gradient-to-b items-center from-indigo-100 flex flex-col gap-4 mt-4  rounded-lg p-4  m-32 ">
-          <div className="text-2xl flex flex-col gap-2">
-            <h2 className="text-6xl">CEP:{cep}</h2>
+        <form className=" bg-gradient-to-b  from-indigo-100 flex flex-col gap-4 mt-4  rounded-lg p-4  mx-64 ">
+          <div className="text-2xl flex flex-col gap-2 ">
+            <h2 className="text-4xl">CEP :{cep}</h2>
             <span>State : </span>
             <span>City : </span>
             <span>District : </span>
