@@ -24,15 +24,6 @@ export const Home = () => {
         alert("Erro ao buscar");
         setInput("");
       });
-
-    // try {
-    //   const response = await api.get(`${input}`);
-    //   setCep(response.data);
-    //   setInput("");
-    // } catch (err) {
-    //   alert("Erro ao buscar");
-    //   setInput("");
-    // }
   };
 
   return (
