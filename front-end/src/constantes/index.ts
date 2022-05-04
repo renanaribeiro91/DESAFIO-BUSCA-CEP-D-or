@@ -1,1 +1,1 @@
-export const API_URL = "http://localhost:4000/?tracking=";
+export const API_URL = "http://localhost:4000";

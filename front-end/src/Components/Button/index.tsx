@@ -1,15 +1,15 @@
-import React from "react";
-import { FcSearch } from "react-icons/fc";
+import React, { ReactNode } from "react";
 
 interface Ibutton {
   click: any;
   className?: string;
+  children?: ReactNode;
 }
 
-export const Button = ({ className, click }: Ibutton) => {
+export const Button = ({ children, className, click }: Ibutton) => {
   return (
     <button className={`${className}`} onClick={click}>
-      <FcSearch size="25" />
+      {children}
     </button>
   );
 };
