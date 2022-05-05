@@ -17,7 +17,7 @@ export interface IInput {
   className?: string;
 }
 export interface Ibutton {
-  click: any;
+  click?: any;
   className?: string;
   children?: ReactNode;
 }

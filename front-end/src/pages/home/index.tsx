@@ -11,28 +11,36 @@ export const Home = () => {
   const handleSearch = async (e: any) => {
     e.preventDefault();
     if (input === "") {
-      console.log(input);
       alert("Preencha algum cep ");
+    } else if (input.length < 8) {
+      alert("Faltando digito");
+      setInput("");
       return;
     }
 
     try {
       const result = await getCepByApi(input);
-      setCep(result);
-      setInput("");
+      console.log(result);
+      if (result.status === 400) {
+        alert("Cep invalido");
+        setInput("");
+      } else if (result.status === 404) {
+        alert("Cep não encontrado");
+        setInput("");
+      } else if (result.status === 200) {
+        alert("Cep encontrado");
+        setCep(result);
+        setInput("");
+      }
     } catch (error) {
-      alert("Erro ao buscar");
       setInput("");
     }
   };
 
   return (
     <div className="w-full h-screen ">
-      <p className="text-5xl animate-bounce text-teal-50 ">
-        Welcome - Rede D'or challenge
-      </p>
       <section className=" flex flex-col  gap-5">
-        <h1 className="text-8xl text-center text-white ">Buscador de CEP</h1>
+        <h1 className="text-8xl text-center text-white ">Busca CEP</h1>
         <div className="flex gap-2 justify-center  ">
           <Input
             className="border text-center shadow-lg  bg-gray-700 rounded-full border-dotted text-white p-2 "
