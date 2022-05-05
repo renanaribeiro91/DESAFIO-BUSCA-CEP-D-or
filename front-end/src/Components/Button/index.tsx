@@ -1,10 +1,5 @@
-import React, { ReactNode } from "react";
-
-interface Ibutton {
-  click: any;
-  className?: string;
-  children?: ReactNode;
-}
+import React from "react";
+import { Ibutton } from "../../interfaces";
 
 export const Button = ({ children, className, click }: Ibutton) => {
   return (

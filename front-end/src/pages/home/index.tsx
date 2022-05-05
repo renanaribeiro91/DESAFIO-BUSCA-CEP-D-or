@@ -35,18 +35,18 @@ export const Home = () => {
         <h1 className="text-8xl text-center text-white ">Buscador de CEP</h1>
         <div className="flex gap-2 justify-center  ">
           <Input
-            className="border text-center shadow-lg  bg-gray-700 rounded-full border-dotted text-white p-3 "
+            className="border text-center shadow-lg  bg-gray-700 rounded-full border-dotted text-white p-2 "
             onChange={(e: any) => {
               setInput(e.target.value);
             }}
             value={input}
             placeholder="Digite o  cep..."
           />
-          <Button click={handleSearch}>
+          <Button click={handleSearch} aria-label="search">
             <FcSearch size="25" />
           </Button>
         </div>
-        <form className=" bg-gradient-to-b  from-indigo-100 flex flex-col gap-4 mt-4  rounded-lg p-4  mx-64 ">
+        <form className=" bg-gradient-to-b  from-indigo-100 flex flex-col gap-4 mt-4  rounded-lg p-4  mx-64 h-72">
           <div className="text-2xl flex flex-col gap-2 ">
             <h2 className="text-4xl">CEP :{cep.code}</h2>
             <span>State :{cep.state}</span>

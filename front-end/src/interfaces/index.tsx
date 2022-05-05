@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface ICep {
   status?: number;
   ok?: boolean;
@@ -13,4 +15,9 @@ export interface IInput {
   onChange: any;
   placeholder: string;
   className?: string;
+}
+export interface Ibutton {
+  click: any;
+  className?: string;
+  children?: ReactNode;
 }
