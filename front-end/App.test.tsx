@@ -1,7 +1,7 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 import { render, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import userEvent from "@testing-library/user-event";
+
 import { Home, Initial } from "./src/routes/list";
 
 describe("Initial Component", () => {
@@ -10,17 +10,6 @@ describe("Initial Component", () => {
 
     expect(getByText("Welcome - Rede D'or challenge")).toBeTruthy();
   });
-
-  //   test("Simulate events", async () => {
-  //     const { getByText, getByRole } = render(<Initial />);
-
-  //     const enterButton = getByText("Entrar");
-  //     userEvent.click(enterButton);
-
-  //     await waitFor(() => {
-  //       expect(getByText("Search zip code")).toBeInTheDocument();
-  //     });
-  //   });
 });
 
 describe("Home Component", () => {

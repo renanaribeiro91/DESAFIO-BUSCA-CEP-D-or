@@ -9,6 +9,8 @@ export const cepController = async (req: Request, res: Response) => {
     logger.info(result);
     return res.status(200).send(result);
   } catch (error) {
-    throw new Error();
+    return false;
   }
 };
+
+// .replace(/\D/g, '')

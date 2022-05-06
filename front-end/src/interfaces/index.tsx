@@ -11,6 +11,8 @@ export interface ICep {
   statusText?: string;
 }
 export interface IInput {
+  names?: string;
+  type?: string;
   value: any;
   onChange: any;
   placeholder: string;

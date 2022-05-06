@@ -1,12 +1,21 @@
 import React from "react";
 import { IInput } from "../../interfaces";
 
-export const Input = ({ value, onChange, placeholder, className }: IInput) => {
+export const Input = ({
+  names,
+  type,
+
+  value,
+  onChange,
+  placeholder,
+  className,
+}: IInput) => {
   return (
     <input
+      name={names}
       onChange={onChange}
       value={value}
-      type="text"
+      type={type}
       className={`${className}`}
       placeholder={placeholder}
     />

@@ -13,8 +13,9 @@ export const Home = () => {
     if (input === "") {
       alert("Preencha algum cep ");
     } else if (input.length < 8) {
-      alert("Faltando digito");
+      alert("O campo precisa ter no minimo 8 caracteres");
       setInput("");
+      setCep("");
       return;
     }
 
@@ -24,39 +25,46 @@ export const Home = () => {
       if (result.status === 400) {
         alert("Cep invalido");
         setInput("");
+        setCep("");
       } else if (result.status === 404) {
         alert("Cep não encontrado");
         setInput("");
+        setCep("");
       } else if (result.status === 200) {
         alert("Cep encontrado");
         setCep(result);
         setInput("");
+        setCep("");
       } else {
         alert("Erro ao buscar");
       }
     } catch (error) {
+      alert("Erro no servidor");
       setInput("");
+      setCep("");
     }
   };
 
   return (
     <div className="w-full h-screen ">
-      <section className=" flex flex-col  gap-5">
+      <form className=" flex flex-col  gap-5">
         <h1 className="text-8xl text-center text-white ">Search zip code</h1>
         <div className="flex gap-2 justify-center  ">
           <Input
-            className="border text-center shadow-lg  bg-gray-700 rounded-full border-dotted text-white p-2 "
+            type="text"
             onChange={(e: any) => {
               setInput(e.target.value);
             }}
-            value={input}
             placeholder="Type your code..."
+            value={input}
+            className="border text-center shadow-lg  bg-gray-700 rounded-full border-dotted text-white p-2 "
           />
+
           <Button click={handleSearch} aria-label="search">
             <FcSearch size="25" />
           </Button>
         </div>
-        <form className=" bg-gradient-to-b  from-indigo-100 flex flex-col gap-4 mt-4  rounded-lg p-4  mx-64 h-72">
+        <div className=" bg-gradient-to-b  from-indigo-100 flex flex-col gap-4 mt-4  rounded-lg p-4  mx-64 h-72">
           <div className="text-2xl flex flex-col gap-2 ">
             <h2 className="text-4xl">CEP :{cep.code}</h2>
             <span>State :{cep.state}</span>
@@ -64,8 +72,8 @@ export const Home = () => {
             <span>District : {cep.district}</span>
             <span>Address :{cep.address}</span>
           </div>
-        </form>
-      </section>
+        </div>
+      </form>
     </div>
   );
 };
