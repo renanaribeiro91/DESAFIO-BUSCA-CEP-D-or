@@ -31,6 +31,8 @@ export const Home = () => {
         alert("Cep encontrado");
         setCep(result);
         setInput("");
+      } else {
+        alert("Erro ao buscar");
       }
     } catch (error) {
       setInput("");
@@ -40,7 +42,7 @@ export const Home = () => {
   return (
     <div className="w-full h-screen ">
       <section className=" flex flex-col  gap-5">
-        <h1 className="text-8xl text-center text-white ">Busca CEP</h1>
+        <h1 className="text-8xl text-center text-white ">Search zip code</h1>
         <div className="flex gap-2 justify-center  ">
           <Input
             className="border text-center shadow-lg  bg-gray-700 rounded-full border-dotted text-white p-2 "
@@ -48,7 +50,7 @@ export const Home = () => {
               setInput(e.target.value);
             }}
             value={input}
-            placeholder="Digite o  cep..."
+            placeholder="Type your code..."
           />
           <Button click={handleSearch} aria-label="search">
             <FcSearch size="25" />
