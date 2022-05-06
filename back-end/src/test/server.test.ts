@@ -15,4 +15,37 @@ describe('When invoked with a valid "21920430" string', () => {
       statusText: "ok",
     });
   });
+
+  it("Should fulfill with not found address", async () => {
+    const address = await getCepByApi("21920434");
+
+    expect(address).toEqual({
+      message: "CEP não encontrado",
+      ok: false,
+      status: 404,
+      statusText: "not_found",
+    });
+  });
+
+  it("Should fulfill with invalid address", async () => {
+    const address = await getCepByApi("111111111");
+
+    expect(address).toEqual({
+      message: "CEP informado é inválido",
+      ok: false,
+      status: 400,
+      statusText: "bad_request",
+    });
+  });
+
+  it("Should fulfill with invalid address", async () => {
+    const address = await getCepByApi("111111111");
+
+    expect(address).toEqual({
+      message: "CEP informado é inválido",
+      ok: false,
+      status: 400,
+      statusText: "bad_request",
+    });
+  });
 });
