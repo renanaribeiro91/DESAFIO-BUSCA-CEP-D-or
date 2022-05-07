@@ -25,23 +25,19 @@ export const Home = () => {
       if (result.status === 400) {
         alert("Cep invalido");
         setInput("");
-        setCep("");
       } else if (result.status === 404) {
         alert("Cep não encontrado");
         setInput("");
-        setCep("");
       } else if (result.status === 200) {
         alert("Cep encontrado");
         setCep(result);
         setInput("");
-        setCep("");
       } else {
         alert("Erro ao buscar");
       }
     } catch (error) {
       alert("Erro no servidor");
       setInput("");
-      setCep("");
     }
   };
 

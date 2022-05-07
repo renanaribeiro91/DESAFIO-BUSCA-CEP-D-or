@@ -5,6 +5,15 @@ services:
     build: ./back-end
     ports:
       - "4000:4000"
+    networks:
+      - network_local
+    depends_on:
+      - redis_local
+    links:
+      - redis_local
+    environment:
+      REDIS_PORT: 6379
+      REDIS_HOST: redis_local
 
   client:
     container_name: client-container
@@ -12,6 +21,33 @@ services:
     ports:
       - "3000:3000"
 
+    networks:
+      - network_local
+
     tty: true
     depends_on:
       - api
+
+  redis_local:
+    build:
+      context: ./back-end/docker/redis
+ 
+    container_name: redis_local
+  
+
+    volumes:
+      - redis_local_data:/var/lib/redis
+
+    ports:
+      - "6379:6379"
+  
+    networks:
+      - network_local
+networks:
+
+  network_local:
+    driver: bridge
+
+volumes:
+  redis_local_data: {}
+

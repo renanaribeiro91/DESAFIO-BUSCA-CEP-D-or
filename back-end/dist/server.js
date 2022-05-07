@@ -12,6 +12,8 @@ require("./modules");
 
 var _logger = require("./utils/logger");
 
+require("./db/redis");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const app = (0, _express.default)();
