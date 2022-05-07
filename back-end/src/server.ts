@@ -4,10 +4,10 @@ import routes from "./routes";
 import cors from "cors";
 import "./modules";
 import { logger } from "./utils/logger";
-import { redisClient } from "./db/redis";
+// import { redisClient } from "./db/redis";
 
 const app = express();
-redisClient.connect();
+// redisClient.connect();
 
 app.use(express.json());
 app.use(cors());

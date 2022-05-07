@@ -7,27 +7,34 @@ exports.cepController = void 0;
 
 var _services = require("../../services");
 
-var _redis = require("../../db/redis");
+var _logger = require("../../utils/logger");
 
+// import { getRedis, setRedis } from "../../db/redis";
 const cepController = async (req, res) => {
   const {
     tracking
   } = req.query;
 
   try {
-    const setCep = await (0, _redis.setRedis)(`cep-${tracking.code}`, JSON.stringify(tracking));
+    // const cepRedis = await getRedis(`cep-${tracking}`);
+    // const cep = JSON.parse(cepRedis);
+    // console.log(cep);
+    // if (!cepRedis) {
+    // const setCep = await setRedis(
+    //   `cep-${tracking}`,
+    //   JSON.stringify(tracking)
+    // );
+    const result = await (0, _services.getCepByApi)(tracking);
+    const resultInfo = JSON.stringify(result);
 
-    if (setCep) {
-      const cepRedis = await (0, _redis.getRedis)(`cep-${tracking}`);
-      const cep = JSON.parse(cepRedis);
-      return res.status(200).send(cep);
-    } else {
-      const result = await (0, _services.getCepByApi)(tracking); // logger.info(result);
+    _logger.logger.info(resultInfo);
 
-      return res.status(200).send(result);
-    }
+    return res.status(200).send(result); // }
+    // return res.status(200).send(cep);
   } catch (error) {
-    return false;
+    _logger.logger.error(error);
+
+    return res.status(500).send("Internal Server Error");
   }
 };
 

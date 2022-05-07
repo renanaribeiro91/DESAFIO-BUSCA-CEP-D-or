@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { getCepByApi } from "../../services";
 import { logger } from "../../utils/logger";
-import { getRedis, setRedis } from "../../db/redis";
+// import { getRedis, setRedis } from "../../db/redis";
 
 export const cepController = async (req: Request, res: Response) => {
   const { tracking } = req.query;
