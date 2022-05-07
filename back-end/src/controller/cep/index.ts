@@ -14,7 +14,9 @@ export const cepController = async (req: Request, res: Response) => {
     // if (!cepRedis) {
     const result = await getCepByApi(tracking);
     //   const setCep = await setRedis(`cep-${tracking}`, JSON.stringify(result));
-    logger.info(JSON.stringify(result));
+    const resultInfo = JSON.stringify(result);
+
+    logger.info(resultInfo);
     return res.status(200).send(result);
     // }
     // return res.status(200).send(cep);

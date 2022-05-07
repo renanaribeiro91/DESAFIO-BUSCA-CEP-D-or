@@ -309,3 +309,13 @@ info: May-07-2022 16:02:48: server is run on PORT 4000
 info: May-07-2022 16:02:50: server is run on PORT 4000
 info: May-07-2022 16:03:34: server is run on PORT 4000
 info: May-07-2022 16:03:43: server is run on PORT 4000
+info: May-07-2022 16:29:53: server is run on PORT 4000
+info: May-07-2022 16:29:57: {"status":200,"ok":true,"code":"21920-430","state":"RJ","city":"Rio de Janeiro","district":"Portuguesa","address":"Rua Fernando de Azevedo","statusText":"ok"}
+info: May-07-2022 16:29:59: {"status":200,"ok":true,"code":"21920-430","state":"RJ","city":"Rio de Janeiro","district":"Portuguesa","address":"Rua Fernando de Azevedo","statusText":"ok"}
+info: May-07-2022 16:30:10: {"status":200,"ok":true,"code":"21920-430","state":"RJ","city":"Rio de Janeiro","district":"Portuguesa","address":"Rua Fernando de Azevedo","statusText":"ok"}
+info: May-07-2022 16:30:54: {"status":200,"ok":true,"code":"21920-430","state":"RJ","city":"Rio de Janeiro","district":"Portuguesa","address":"Rua Fernando de Azevedo","statusText":"ok"}
+info: May-07-2022 16:30:54: {"status":200,"ok":true,"code":"21920-430","state":"RJ","city":"Rio de Janeiro","district":"Portuguesa","address":"Rua Fernando de Azevedo","statusText":"ok"}
+info: May-07-2022 16:31:19: server is run on PORT 4000
+info: May-07-2022 16:31:19: server is run on PORT 4000
+info: May-07-2022 16:31:31: {"status":200,"ok":true,"code":"21920-430","state":"RJ","city":"Rio de Janeiro","district":"Portuguesa","address":"Rua Fernando de Azevedo","statusText":"ok"}
+info: May-07-2022 16:32:12: {"status":200,"ok":true,"code":"21920-430","state":"RJ","city":"Rio de Janeiro","district":"Portuguesa","address":"Rua Fernando de Azevedo","statusText":"ok"}

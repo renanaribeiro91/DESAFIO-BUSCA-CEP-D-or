@@ -29,6 +29,10 @@ export const Home = () => {
       } else if (result.status === 404) {
         alert("Cep não encontrado");
         setInput("");
+      } else if (result.status === 200) {
+        alert("Cep encontrado");
+        setCep(result);
+        setInput("");
       } else {
         alert("Erro ao buscar");
       }

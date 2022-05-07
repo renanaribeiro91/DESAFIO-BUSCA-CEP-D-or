@@ -19,6 +19,11 @@
 - Docker
 - Node
 
+## START
+
 <p align="center">
-Rodas o comando de build  "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored" antes de iniciar o projeto no docker
+1 - Rodar o comando de build  "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored" para fazer a build 
+</p>
+<p align="center">
+2 - Compose up 
 </p>
