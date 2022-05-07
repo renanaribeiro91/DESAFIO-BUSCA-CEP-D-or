@@ -9,7 +9,6 @@ var _services = require("../../services");
 
 var _logger = require("../../utils/logger");
 
-// import { getRedis, setRedis } from "../../db/redis";
 const cepController = async (req, res) => {
   const {
     tracking
@@ -18,16 +17,10 @@ const cepController = async (req, res) => {
   try {
     // const cepRedis = await getRedis(`cep-${tracking}`);
     // const cep = JSON.parse(cepRedis);
-    // console.log(cep);
     // if (!cepRedis) {
-    // const setCep = await setRedis(
-    //   `cep-${tracking}`,
-    //   JSON.stringify(tracking)
-    // );
-    const result = await (0, _services.getCepByApi)(tracking);
-    const resultInfo = JSON.stringify(result);
+    const result = await (0, _services.getCepByApi)(tracking); //   const setCep = await setRedis(`cep-${tracking}`, JSON.stringify(result));
 
-    _logger.logger.info(resultInfo);
+    _logger.logger.info(JSON.stringify(result));
 
     return res.status(200).send(result); // }
     // return res.status(200).send(cep);

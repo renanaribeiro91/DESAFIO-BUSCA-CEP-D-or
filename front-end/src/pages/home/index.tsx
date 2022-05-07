@@ -12,6 +12,7 @@ export const Home = () => {
     e.preventDefault();
     if (input === "") {
       alert("Preencha algum cep ");
+      return;
     } else if (input.length < 8) {
       alert("O campo precisa ter no minimo 8 caracteres");
       setInput("");
@@ -27,10 +28,6 @@ export const Home = () => {
         setInput("");
       } else if (result.status === 404) {
         alert("Cep não encontrado");
-        setInput("");
-      } else if (result.status === 200) {
-        alert("Cep encontrado");
-        setCep(result);
         setInput("");
       } else {
         alert("Erro ao buscar");
